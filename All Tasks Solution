@@ -30,6 +30,7 @@ gcloud builds submit --tag gcr.io/${PROJECT_ID}/billing-staging-api:0.2
 gcloud run deploy public-billing-service --image gcr.io/${PROJECT_ID}/billing-staging-api:0.2
 gcloud run services list
 
+export BILLING_SERVICE=public-billing-service
 BILLING_URL=$(gcloud run services describe $BILLING_SERVICE \
   --platform managed \
   --region us-central1 \
